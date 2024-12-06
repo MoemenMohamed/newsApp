@@ -14,23 +14,28 @@ class NewsTile extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            height: 200,
+            height: 250,
             width: double.infinity,
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage(News.newsImage),
-                fit: BoxFit.cover,
+                image: News.newsImage != null
+                    ? NetworkImage(News.newsImage!)
+                    : const AssetImage('assets/no_image.png',),
+                fit: BoxFit.fill,
               ),
               borderRadius: BorderRadius.circular(20),
             ),
           ),
           Text(
             News.newsTitle,
-            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
+            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+            textAlign: TextAlign.justify,
           ),
+          const SizedBox(height: 15,),
           Text(
-            News.newsDesc,
-            style: const TextStyle(color: Colors.grey, fontSize: 18),
+            News.newsDesc ?? "",
+            style: const TextStyle(color: Colors.grey, fontSize: 14),
+            textAlign: TextAlign.justify,
           )
         ],
       ),

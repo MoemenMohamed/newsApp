@@ -6,6 +6,9 @@ import 'views/home_view.dart';
 
 
 void main() {
+
+
+
   runApp(const NewsApp());
 
 }

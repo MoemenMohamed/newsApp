@@ -23,7 +23,7 @@ class CategoryList extends StatelessWidget {
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) {
-          return CategoryBox(category:  categoryData[index]);
+          return GestureDetector(child: CategoryBox(category:  categoryData[index]));
         },
         itemCount: categoryData.length,
       ),
